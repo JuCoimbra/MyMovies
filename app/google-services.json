@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "36732971106",
+    "firebase_url": "https://my-movies-edcef-default-rtdb.firebaseio.com",
+    "project_id": "my-movies-edcef",
+    "storage_bucket": "my-movies-edcef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36732971106:android:9ab26c147257b2e301093b",
+        "android_client_info": {
+          "package_name": "com.example.mymovies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36732971106-44k22lvj6r09v8gt2mpu5qsqrmk5d44q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mymovies",
+            "certificate_hash": "5fb83641e3d8349e2db33a2effc452e47fe33edc"
+          }
+        },
+        {
+          "client_id": "36732971106-q8m0qdkb2dr7l0vobcpjrapd8qn22i1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWjpDyCj_Yr4hpEAa6hn-an9R9oVJJbtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36732971106-q8m0qdkb2dr7l0vobcpjrapd8qn22i1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
