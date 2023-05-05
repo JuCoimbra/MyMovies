@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyMovies</string>
+    <string name="bem_vindo_a">Bem-vindo(a)!</string>
+    <string name="registro_academico_ra">Registro Academico (RA):</string>
+    <string name="senha">Senha:</string>
+    <string name="login">Login</string>
+    <string name="n_o_possui_uma_conta">Não possui uma conta?</string>
+    <string name="junte_se_a_n_s">Junte-se a nós!</string>
+    <string name="ops_login">Ops, algo deu errado.\nVocê já é cadastrado?</string>
 </resources>
