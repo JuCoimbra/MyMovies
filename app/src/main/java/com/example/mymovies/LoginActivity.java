@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,8 +27,10 @@ public class LoginActivity extends AppCompatActivity {
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference();
         Button buttonLogin = findViewById(R.id.buttonLogin);
+        Button buttonCadastrar= findViewById(R.id.buttonCadastrar);
         EditText editTextLoginID = findViewById(R.id.editTextLoginName);
         EditText editTextPassword = findViewById(R.id.editTextLoginPassword);
+        TextView textViewError = findViewById(R.id.textViewErro);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -50,19 +53,26 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (!task.isSuccessful()) {
-                            Log.e("firebase", "Error getting data", task.getException());
+                            textViewError.setVisibility(View.VISIBLE);
+                            textViewError.setText("@string/ops_login");
                         }
                         else {
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            textViewError.setVisibility(View.GONE);
                             intent.putExtra("user", login);
                             startActivity(intent);
                             finish();
                         }
                     }
                 });
+            }
+        });
 
-
-
+        buttonCadastrar.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

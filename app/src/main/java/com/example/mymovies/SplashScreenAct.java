@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ImageView;
 
 public class SplashScreenAct extends AppCompatActivity {
 
@@ -14,6 +15,10 @@ public class SplashScreenAct extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         Handler handler = new Handler();
+        ImageView logoImage = findViewById(R.id.logo);
+        logoImage.setScaleX(1.5f);
+        logoImage.setScaleY(1.5f);
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

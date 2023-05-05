@@ -7,4 +7,6 @@
     <string name="n_o_possui_uma_conta">Não possui uma conta?</string>
     <string name="junte_se_a_n_s">Junte-se a nós!</string>
     <string name="ops_login">Ops, algo deu errado.\nVocê já é cadastrado?</string>
+    <string name="logo_content">Logo da aplicação</string>
+    <string name="lema_favoritos">Sua lista de filmes favoritos</string>
 </resources>
