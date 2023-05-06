@@ -6,4 +6,140 @@
     android:layout_height="match_parent"
     tools:context=".CadastroActivity">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageViewLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/logo_foreground"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000" />
+
+                <TextView
+                    android:id="@+id/textCrieConta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/crie_conta"
+                    android:textSize="34sp"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTextLoginRA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="55dp"
+                    android:ems="10"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:hint="@string/registro_academico_ra"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewRA" />
+                <EditText
+                    android:id="@+id/editTextUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="55dp"
+                    android:ems="10"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:hint="@string/usuario"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewRA" />
+
+
+                <EditText
+                    android:id="@+id/editTextLoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="55dp"
+                    android:ems="10"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:hint="@string/senha"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSenha" />
+
+                <EditText
+                    android:id="@+id/editTextLoginPasswordConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="55dp"
+                    android:ems="10"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:hint="@string/confirm_senha"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSenha" />
+
+                <TextView
+                    android:id="@+id/textViewErr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:text="@string/ops_login"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dividerH" />
+
+                <Button
+                    android:id="@+id/buttonCadastrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#254FF5"
+                    android:ems="10"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:padding="8dp"
+                    android:text="@string/junte_se_a_n_s"
+                    android:textSize="19sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

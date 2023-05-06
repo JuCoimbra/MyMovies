@@ -22,14 +22,14 @@
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp"
         android:contentDescription="@string/logo_content"
         android:scaleType="fitCenter"
-        android:scaleX="3f"
-        android:scaleY="3f"
-        android:layout_gravity="center_horizontal"
+        android:scaleX="3.0"
+        android:scaleY="3.0"
         tools:src="@mipmap/logo_foreground" />
 
     <TextView

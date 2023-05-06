@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -49,22 +50,27 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (!task.isSuccessful()) {
-                            textViewError.setVisibility(View.VISIBLE);
-                            textViewError.setText("@string/ops_login");
+                try {
+                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                textViewError.setVisibility(View.VISIBLE);
+                                textViewError.setText("@string/ops_login");
+                            } else {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                textViewError.setVisibility(View.GONE);
+                                intent.putExtra("user", login);
+                                startActivity(intent);
+                                finish();
+                            }
                         }
-                        else {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            textViewError.setVisibility(View.GONE);
-                            intent.putExtra("user", login);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }
-                });
+                    });
+                } catch (com.google.firebase.database.DatabaseException e){
+                System.out.println("Firebase Exception");
+                    textViewError.setVisibility(View.VISIBLE);
+                    textViewError.setText("@string/ops_login");
+            }
             }
         });
 
