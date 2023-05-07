@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuario");
         Button buttonLogin = findViewById(R.id.buttonLogin);
         Button buttonCadastrar= findViewById(R.id.buttonCadastrar);
         EditText editTextLoginID = findViewById(R.id.editTextLoginName);
@@ -51,13 +51,32 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 try {
-                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    int r = Integer.parseInt(login);
+                    String ConfLogin = String.valueOf(r);
+
+                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                        editTextLoginID.setError("RA não pode ser validado. Utilize somente numeros");
+                        editTextLoginID.requestFocus();
+
+                        return;
+                    }
+                } catch (java.lang.NumberFormatException l){
+                    System.out.println("NumberFormatException");
+                    editTextLoginID.setError("RA não pode ser validado. Utilize somente numeros");
+                    editTextLoginID.requestFocus();
+
+                    return;
+                }
+
+
+                try {
+                    usersRef.child(login).child("senha").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if (!task.isSuccessful()) {
+                           if (!task.isSuccessful()) {
                                 textViewError.setVisibility(View.VISIBLE);
-                                textViewError.setText("@string/ops_login");
                             } else {
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 textViewError.setVisibility(View.GONE);
                                 intent.putExtra("user", login);
@@ -69,7 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (com.google.firebase.database.DatabaseException e){
                 System.out.println("Firebase Exception");
                     textViewError.setVisibility(View.VISIBLE);
-                    textViewError.setText("@string/ops_login");
+
+
             }
             }
         });

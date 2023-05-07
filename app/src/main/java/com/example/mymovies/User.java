@@ -4,12 +4,14 @@ public class User {
 
     private String nome;
     private String senha;
-    private int id;
+    private String id;
 
-    public User(String nome, String senha, int id) {
+    public User(String nome, String senha, String id) {
         this.nome = nome;
         this.senha = senha;
         this.id = id;
+
+
     }
 
     // getters e setters para nome, senha e id
@@ -30,11 +32,11 @@ public class User {
         this.senha = senha;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

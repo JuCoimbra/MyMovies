@@ -10,12 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference();
 
         EditText editTextLoginRA = findViewById(R.id.editTextLoginRA);
         EditText editTextUsername = findViewById(R.id.editTextUsername);
@@ -59,12 +63,36 @@ public class CadastroActivity extends AppCompatActivity {
                     return;
                 }
 
-               /* try(){
-                        todo : Fazer cadastro no firebase
+
+                try {
+                    r = Integer.parseInt(login);
+                    String ConfLogin = String.valueOf(r);
+
+                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                        editTextLoginRA.setError("RA não pode ser validado. Utilize somente numeros");
+                        editTextLoginRA.requestFocus();
+
+                        return;
+                    }
+                }catch (java.lang.NumberFormatException l){
+                    System.out.println("NumberFormatException");
+                    editTextLoginRA.setError("RA não pode ser validado. Utilize somente numeros");
+                    editTextLoginRA.requestFocus();
+
+                    return;
+                }
+
+                User novoUser = new User(username, password, login);
+
+               try{
+                   usersRef.setValue(novoUser);
+                   usersRef.child("usuario").child(novoUser.getId()).child("usuario").setValue(novoUser.getNome());
+                   usersRef.child("usuario").child(novoUser.getId()).child("senha").setValue(novoUser.getSenha());
+
 
                 } catch(com.google.firebase.database.DatabaseException e){
 
-                }  */
+                }
 
             }
         );
