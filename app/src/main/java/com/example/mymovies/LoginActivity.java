@@ -19,6 +19,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -79,7 +86,29 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 textViewError.setVisibility(View.GONE);
-                                intent.putExtra("user", login);
+
+                               JSONObject jsonObject = new JSONObject();
+                               try {
+                                   jsonObject.put("usuario", usersRef.child(login).child("usuario"));
+                                   jsonObject.put("senha", usersRef.child(login).child("usuario"));
+                                   jsonObject.put("id", login);
+                               } catch (JSONException e) {
+                                   e.printStackTrace();
+                               }
+                               String jsonString = jsonObject.toString();
+
+                               File file = new File(getApplicationContext().getFilesDir(), "user.json");
+
+                               if (!file.exists()){
+                                   try{
+                                       FileWriter writer = new FileWriter(file);
+                                       writer.write(jsonString);
+                                       writer.close();
+                                   } catch (IOException e) {
+                                       e.printStackTrace();
+                                   }
+                               }
+
                                 startActivity(intent);
                                 finish();
                             }
