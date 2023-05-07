@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">MyMovies</string>
     <string name="bem_vindo_a">Bem-vindo(a)!</string>
+    <string name="crie_conta">Crie Sua Conta</string>
     <string name="registro_academico_ra">Registro Academico (RA):</string>
+    <string name="usuario">Nome de Usuario:</string>
     <string name="senha">Senha:</string>
+    <string name="confirm_senha">Confirme Sua Senha:</string>
     <string name="login">Login</string>
     <string name="n_o_possui_uma_conta">Não possui uma conta?</string>
     <string name="junte_se_a_n_s">Junte-se a nós!</string>
