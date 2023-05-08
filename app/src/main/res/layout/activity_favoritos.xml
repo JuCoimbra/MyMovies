@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavoritosActivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/textFavoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/filme_favorito"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+    <Button
+        android:id="@+id/buttonF2"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider12" />
+
+    <Button
+        android:id="@+id/buttonF3"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider23" />
+
+    <Button
+        android:id="@+id/buttonF4"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider34" />
+
+    <Button
+        android:id="@+id/buttonF1"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="+"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFavoritos" />
+
+    <Button
+        android:id="@+id/buttonConf"
+        android:layout_width="380dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/confirmar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonF4" />
+
+    <ImageView
+        android:id="@+id/imageViewF1"
+        android:visibility="gone"
+        android:layout_width="130dp"
+        android:layout_height="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonF1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonF1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/image_placeholder_500x500" />
+
+    <ImageView
+        android:id="@+id/imageViewF2"
+        android:visibility="gone"
+        android:layout_width="130dp"
+        android:layout_height="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonF2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonF2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/image_placeholder_500x500" />
+
+    <ImageView
+        android:id="@+id/imageViewF3"
+        android:visibility="gone"
+        android:layout_width="130dp"
+        android:layout_height="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonF3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonF3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/image_placeholder_500x500" />
+
+    <ImageView
+        android:id="@+id/imageViewF4"
+        android:visibility="gone"
+        android:layout_width="130dp"
+        android:layout_height="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonF4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonF4"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/image_placeholder_500x500" />
+
+    <TextView
+        android:id="@+id/textViewF1nome"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF1"
+        app:layout_constraintTop_toTopOf="@+id/imageViewF1" />
+
+    <TextView
+        android:id="@+id/textViewF2nome"
+        android:visibility="gone"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imageViewF2"
+        app:layout_constraintTop_toTopOf="@+id/imageViewF1" />
+
+    <TextView
+        android:id="@+id/textViewF3nome"
+        android:visibility="gone"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imageViewF3"
+        app:layout_constraintTop_toTopOf="@+id/imageViewF3" />
+
+    <TextView
+        android:id="@+id/textViewF4nome"
+        android:visibility="gone"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imageViewF4"
+        app:layout_constraintTop_toTopOf="@+id/imageViewF4"
+        tools:layout_editor_absoluteX="108dp" />
+
+    <TextView
+        android:id="@+id/textViewC1"
+        android:visibility="gone"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewF1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF1" />
+
+    <TextView
+        android:id="@+id/textViewC2"
+        android:visibility="gone"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewF2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF2" />
+
+    <TextView
+        android:id="@+id/textViewC3"
+        android:visibility="gone"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewF3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF3" />
+
+    <TextView
+        android:id="@+id/textViewC4"
+        android:visibility="gone"
+        android:layout_width="120dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewF4"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF4" />
+
+    <ToggleButton
+        android:id="@+id/buttonCurtir1"
+        android:visibility="gone"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textOn="❤️"
+        android:textOff="❤️"
+        android:background="@drawable/btn_toggle"
+        app:layout_constraintStart_toEndOf="@+id/textViewC1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewF1nome" />
+
+    <ToggleButton
+        android:id="@+id/buttonCurtir2"
+        android:visibility="gone"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textOn="❤️"
+        android:textOff="❤️"
+        android:background="@drawable/btn_toggle"
+        app:layout_constraintStart_toEndOf="@+id/textViewC2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewF2nome" />
+
+    <ToggleButton
+        android:id="@+id/buttonCurtir3"
+        android:visibility="gone"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textOn="❤️"
+        android:textOff="❤️"
+        android:background="@drawable/btn_toggle"
+        app:layout_constraintStart_toEndOf="@+id/textViewC3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewF3nome" />
+
+    <ToggleButton
+        android:id="@+id/buttonCurtir4"
+        android:visibility="gone"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textOn="❤️"
+        android:textOff="❤️"
+        android:background="@drawable/btn_toggle"
+        app:layout_constraintStart_toEndOf="@+id/textViewC4"
+        app:layout_constraintTop_toBottomOf="@+id/textViewF4nome" />
+
+    <Button
+        android:id="@+id/buttonEdit1"
+        android:visibility="gone"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/editar"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCurtir1"
+        app:layout_constraintTop_toTopOf="@+id/buttonCurtir1" />
+
+    <Button
+        android:id="@+id/buttonEdit2"
+        android:visibility="gone"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/editar"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCurtir2"
+        app:layout_constraintTop_toTopOf="@+id/buttonCurtir2" />
+
+    <Button
+        android:id="@+id/buttonEdit3"
+        android:visibility="gone"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/editar"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCurtir3"
+        app:layout_constraintTop_toTopOf="@+id/buttonCurtir3" />
+
+    <Button
+        android:id="@+id/buttonEdit4"
+        android:visibility="gone"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/editar"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/buttonCurtir4"
+        app:layout_constraintTop_toTopOf="@+id/buttonCurtir4" />
+
+    <EditText
+        android:id="@+id/editTextFilme1"
+        android:visibility="gone"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/nome_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/buttonF1"
+        app:layout_constraintTop_toTopOf="@+id/buttonF1" />
+
+    <EditText
+        android:id="@+id/editTextFilme2"
+        android:visibility="gone"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/nome_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/buttonF2"
+        app:layout_constraintTop_toTopOf="@+id/buttonF2" />
+
+    <EditText
+        android:id="@+id/editTextFilme3"
+        android:visibility="gone"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/nome_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/buttonF3"
+        app:layout_constraintTop_toTopOf="@+id/buttonF3" />
+
+    <EditText
+        android:id="@+id/editTextFilme4"
+        android:visibility="gone"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/nome_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/buttonF4"
+        app:layout_constraintTop_toTopOf="@+id/buttonF4" />
+
+    <Button
+        android:id="@+id/buttonCheck1"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:text="✓"
+        app:layout_constraintStart_toEndOf="@+id/editTextFilme1"
+        app:layout_constraintTop_toTopOf="@+id/textViewF1nome" />
+
+    <Button
+        android:id="@+id/buttonCheck2"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:text="✓"
+        app:layout_constraintStart_toEndOf="@+id/editTextFilme2"
+        app:layout_constraintTop_toTopOf="@+id/textViewF2nome" />
+
+    <Button
+        android:id="@+id/buttonCheck3"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:text="✓"
+        app:layout_constraintStart_toEndOf="@+id/editTextFilme3"
+        app:layout_constraintTop_toTopOf="@+id/textViewF3nome" />
+
+    <Button
+        android:id="@+id/buttonCheck4"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:text="✓"
+        app:layout_constraintStart_toEndOf="@+id/editTextFilme4"
+        app:layout_constraintTop_toTopOf="@+id/textViewF4nome" />
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="30dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@id/textViewC1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonF1" />
+
+    <View
+        android:id="@+id/divider23"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="30dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@id/textViewC1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonF2" />
+
+    <View
+        android:id="@+id/divider34"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="30dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@id/textViewC1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonF3" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
