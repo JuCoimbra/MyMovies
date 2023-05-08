@@ -5,12 +5,10 @@ public class UserMovies {
     private String movieID;
     private String userID;
 
-    public UserMovies(String movieID, String userID) {
-        this.movieID = movieID;
-        this.userID = userID;
+    public UserMovies() {
     }
 
-    public String getMovie() {
+    public String getMovieID() {
         return movieID;
     }
 

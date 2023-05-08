@@ -6,12 +6,7 @@ public class User {
     private String senha;
     private String id;
 
-    public User(String nome, String senha, String id) {
-        this.nome = nome;
-        this.senha = senha;
-        this.id = id;
-
-
+    public User(){
     }
 
     // getters e setters para nome, senha e id
