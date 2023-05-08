@@ -19,8 +19,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-<<<<<<< Updated upstream
-=======
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,7 +28,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
->>>>>>> Stashed changes
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -38,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuario");
         Button buttonLogin = findViewById(R.id.buttonLogin);
         Button buttonCadastrar= findViewById(R.id.buttonCadastrar);
         EditText editTextLoginID = findViewById(R.id.editTextLoginName);
@@ -62,13 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                try {
-<<<<<<< Updated upstream
-                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if (!task.isSuccessful()) {
-=======
+                try {  
                     int r = Integer.parseInt(login);
                     String ConfLogin = String.valueOf(r);
 
@@ -88,22 +79,41 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 try {
-                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    usersRef.child(login).child("senha").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
-                           if (!task.isSuccessful() || !password.equals(usuario.getSenha())) {
->>>>>>> Stashed changes
+                            //User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
+                          
+                           if (!task.isSuccessful() || !password.equals(task.getResult().getValue().toString() {
                                 textViewError.setVisibility(View.VISIBLE);
-                                textViewError.setText("@string/ops_login");
                             } else {
-<<<<<<< Updated upstream
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-=======
+
                                 Intent intent = new Intent(LoginActivity.this, FavoritosActivity.class);
->>>>>>> Stashed changes
+                             
                                 textViewError.setVisibility(View.GONE);
-                                intent.putExtra("user", login);
+
+                               JSONObject jsonObject = new JSONObject();
+                               try {
+                                   jsonObject.put("usuario", usersRef.child(login).child("usuario"));
+                                   jsonObject.put("senha", usersRef.child(login).child("usuario"));
+                                   jsonObject.put("id", login);
+                               } catch (JSONException e) {
+                                   e.printStackTrace();
+                               }
+                               String jsonString = jsonObject.toString();
+
+                               File file = new File(getApplicationContext().getFilesDir(), "user.json");
+
+                               if (!file.exists()){
+                                   try{
+                                       FileWriter writer = new FileWriter(file);
+                                       writer.write(jsonString);
+                                       writer.close();
+                                   } catch (IOException e) {
+                                       e.printStackTrace();
+                                   }
+                               }
+
                                 startActivity(intent);
                                 finish();
                             }
@@ -112,7 +122,8 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (com.google.firebase.database.DatabaseException e){
                 System.out.println("Firebase Exception");
                     textViewError.setVisibility(View.VISIBLE);
-                    textViewError.setText("@string/ops_login");
+
+
             }
             }
         });

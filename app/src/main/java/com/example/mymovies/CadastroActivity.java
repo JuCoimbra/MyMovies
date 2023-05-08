@@ -9,16 +9,17 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-<<<<<<< Updated upstream
-=======
+
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuario");
->>>>>>> Stashed changes
 
         EditText editTextLoginRA = findViewById(R.id.editTextLoginRA);
         EditText editTextUsername = findViewById(R.id.editTextUsername);
@@ -62,11 +63,6 @@ public class CadastroActivity extends AppCompatActivity {
                     return;
                 }
 
-<<<<<<< Updated upstream
-               /* try(){
-                        todo : Fazer cadastro no firebase
-=======
-
                 try {
                     r = Integer.parseInt(login);
                     String ConfLogin = String.valueOf(r);
@@ -85,18 +81,13 @@ public class CadastroActivity extends AppCompatActivity {
                     return;
                 }
 
-                User novoUser = new User(username, password,login);
-
                try{
-                   usersRef.setValue(login);
-                   usersRef.child(novoUser.getId()).child("usuario").setValue(novoUser.getUsuario());
-                   usersRef.child(novoUser.getId()).child("senha").setValue(novoUser.getSenha());
-
->>>>>>> Stashed changes
-
+                   usersRef.child(login).child("usuario").setValue(username);
+                   usersRef.child(login).child("senha").setValue(password);
+                 
                 } catch(com.google.firebase.database.DatabaseException e){
 
-                }  */
+                }
 
             }
         );
