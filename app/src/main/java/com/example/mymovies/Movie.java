@@ -2,22 +2,20 @@ package com.example.mymovies;
 
 public class Movie {
 
-    private String nome;
+    private String titulo;
     private String ano;
+    private String id;
     private int likes;
 
-    public Movie(String nome, String ano, int likes) {
-        this.nome = nome;
-        this.ano = ano;
-        this.likes = likes;
+    public Movie() {
     }
 
-    public String getNome() {
-        return nome;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAno() {
@@ -31,9 +29,19 @@ public class Movie {
     public int getLikes() {
         return likes;
     }
+    public String getID() {
+        return id;
+    }
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+    public void setID(String id) {
+        this.id = id;
+    }
+
+    public void likePlus() {
+        likes++;
     }
 
 }
