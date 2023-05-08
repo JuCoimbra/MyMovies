@@ -25,6 +25,8 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -57,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                try {
+                try {  
                     int r = Integer.parseInt(login);
                     String ConfLogin = String.valueOf(r);
 
@@ -80,11 +82,14 @@ public class LoginActivity extends AppCompatActivity {
                     usersRef.child(login).child("senha").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                           if (!task.isSuccessful()) {
+                            //User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
+                          
+                           if (!task.isSuccessful() || !password.equals(task.getResult().getValue().toString() {
                                 textViewError.setVisibility(View.VISIBLE);
                             } else {
 
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, FavoritosActivity.class);
+                             
                                 textViewError.setVisibility(View.GONE);
 
                                JSONObject jsonObject = new JSONObject();

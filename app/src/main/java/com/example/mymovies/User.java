@@ -1,8 +1,11 @@
 package com.example.mymovies;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 public class User {
 
-    private String nome;
+    private String usuario;
     private String senha;
     private String id;
 
@@ -11,12 +14,12 @@ public class User {
 
     // getters e setters para nome, senha e id
 
-    public String getNome() {
-        return nome;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getSenha() {
