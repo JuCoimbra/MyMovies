@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -16,6 +15,10 @@ public class CadastroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+<<<<<<< Updated upstream
+=======
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuario");
+>>>>>>> Stashed changes
 
         EditText editTextLoginRA = findViewById(R.id.editTextLoginRA);
         EditText editTextUsername = findViewById(R.id.editTextUsername);
@@ -59,8 +62,37 @@ public class CadastroActivity extends AppCompatActivity {
                     return;
                 }
 
+<<<<<<< Updated upstream
                /* try(){
                         todo : Fazer cadastro no firebase
+=======
+
+                try {
+                    r = Integer.parseInt(login);
+                    String ConfLogin = String.valueOf(r);
+
+                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                        editTextLoginRA.setError("RA não pode ser validado. Utilize somente numeros");
+                        editTextLoginRA.requestFocus();
+
+                        return;
+                    }
+                }catch (java.lang.NumberFormatException l){
+                    System.out.println("NumberFormatException");
+                    editTextLoginRA.setError("RA não pode ser validado. Utilize somente numeros");
+                    editTextLoginRA.requestFocus();
+
+                    return;
+                }
+
+                User novoUser = new User(username, password,login);
+
+               try{
+                   usersRef.setValue(login);
+                   usersRef.child(novoUser.getId()).child("usuario").setValue(novoUser.getUsuario());
+                   usersRef.child(novoUser.getId()).child("senha").setValue(novoUser.getSenha());
+
+>>>>>>> Stashed changes
 
                 } catch(com.google.firebase.database.DatabaseException e){
 

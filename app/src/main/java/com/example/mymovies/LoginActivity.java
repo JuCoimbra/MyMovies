@@ -19,6 +19,18 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+<<<<<<< Updated upstream
+=======
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Objects;
+
+>>>>>>> Stashed changes
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -51,14 +63,45 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 try {
+<<<<<<< Updated upstream
                     usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                             if (!task.isSuccessful()) {
+=======
+                    int r = Integer.parseInt(login);
+                    String ConfLogin = String.valueOf(r);
+
+                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                        editTextLoginID.setError("RA não pode ser validado. Utilize somente numeros");
+                        editTextLoginID.requestFocus();
+
+                        return;
+                    }
+                } catch (java.lang.NumberFormatException l){
+                    System.out.println("NumberFormatException");
+                    editTextLoginID.setError("RA não pode ser validado. Utilize somente numeros");
+                    editTextLoginID.requestFocus();
+
+                    return;
+                }
+
+
+                try {
+                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
+                           if (!task.isSuccessful() || !password.equals(usuario.getSenha())) {
+>>>>>>> Stashed changes
                                 textViewError.setVisibility(View.VISIBLE);
                                 textViewError.setText("@string/ops_login");
                             } else {
+<<<<<<< Updated upstream
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+=======
+                                Intent intent = new Intent(LoginActivity.this, FavoritosActivity.class);
+>>>>>>> Stashed changes
                                 textViewError.setVisibility(View.GONE);
                                 intent.putExtra("user", login);
                                 startActivity(intent);
