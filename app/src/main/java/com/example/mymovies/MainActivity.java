@@ -3,11 +3,17 @@ package com.example.mymovies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,8 +31,13 @@ public class MainActivity extends AppCompatActivity {
     ArrayList listUsuarios = new ArrayList<>();
     ArrayList listMovies = new ArrayList<>();
     ArrayList listMoviesUsers = new ArrayList<>();
+    RecyclerView recyclerView;
+    RecyclerView.Adapter myAdapter;
+    RecyclerView.LayoutManager layoutManager;
     Toolbar toolbar = findViewById(R.id.toolbar);
-    ListView listViewUsers = findViewById(R.id.listViewUsers);
+    ImageButton home_btn;
+    ImageButton favorite_btn;
+    TextView userName;
 
 
     @Override
@@ -34,11 +45,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        String valor = intent.getStringExtra("user");
+        home_btn = findViewById(R.id.btn_home);
+        favorite_btn = findViewById(R.id.btn_favorites);
+        userName = findViewById(R.id.user_name_text_view);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Olá");
+        home_btn.setBackgroundColor(Color.rgb(111, 138, 247));
+
+        favorite_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FavoritosActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        myAdapter = new UserAdapter(listUsuarios, listMovies, listMoviesUsers);
+        recyclerView.setAdapter(myAdapter);
 
         usuarios.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                 for(DataSnapshot current_user: snapshot.getChildren()){
                     User usu = new User();
-                    usu.setNome(current_user.child("nome").getValue().toString());
+                    usu.setUsuario(current_user.child("nome").getValue().toString());
                     usu.setSenha(current_user.child("senha").getValue().toString());
                     usu.setId(current_user.getKey().toString());
                     listUsuarios.add(usu);

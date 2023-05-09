@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                             //User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
                           
-                           if (!task.isSuccessful() || !password.equals(task.getResult().getValue().toString() {
+                           if (!task.isSuccessful() || !password.equals(task.getResult().getValue().toString())){
                                 textViewError.setVisibility(View.VISIBLE);
                             } else {
 

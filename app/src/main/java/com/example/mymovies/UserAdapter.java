@@ -3,14 +3,16 @@ package com.example.mymovies;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     private ArrayList<User> users;
     private ArrayList<Movie> movies;
     private ArrayList<UserMovies> userMovies;
@@ -21,16 +23,33 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
         this.userMovies = userMovies;
     }
 
-    @NonNull
-    @Override
-    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.main_card_list, parent, false);
-        return new UserViewHolder(itemView);
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        private TextView textView;
+        private RecyclerView reciclerView;
+        private RecyclerView.Adapter myAdapter;
+        private RecyclerView.LayoutManager layoutManager;
+
+
+
+        public ViewHolder(View view){
+            super(view);
+            textView = view.findViewById(R.id.user_name_text_view);
+            reciclerView = view.findViewById(R.id.user_name_text_view);
+
+            layoutManager = new LinearLayoutManager(view.getContext());
+            reciclerView.setLayoutManager(layoutManager);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.main_card_list, parent, false);
+        return new ViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
         User user = users.get(position);
         ArrayList<Movie> userFavoriteMovies = new ArrayList<>();
 
@@ -47,8 +66,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
             }
         }
 
-        holder.bind(user.getNome(), userFavoriteMovies);
-        userFavoriteMovies.clear();
+        holder.myAdapter = new MovieAdapter(userFavoriteMovies);
+        holder.textView.setText(user.getUsuario());
+        holder.reciclerView.setAdapter(holder.myAdapter);
     }
 
     @Override
