@@ -21,6 +21,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton home_btn;
     ImageButton favorite_btn;
     TextView userName;
+    String userNameJson;
 
 
     @Override
@@ -50,6 +58,26 @@ public class MainActivity extends AppCompatActivity {
         userName = findViewById(R.id.user_name_text_view);
 
         home_btn.setBackgroundColor(Color.rgb(111, 138, 247));
+
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(getFilesDir()+"arquivo.json"));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            String json = reader.readLine();
+            JSONObject obj = new JSONObject(json);
+            userNameJson = obj.getString("usuario");
+            reader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        userName.setText(userNameJson);
 
         favorite_btn.setOnClickListener(new View.OnClickListener() {
             @Override
