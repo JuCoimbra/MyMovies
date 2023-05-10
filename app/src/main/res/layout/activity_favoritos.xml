@@ -137,8 +137,8 @@
         android:layout_height="40dp"
         android:textSize="20sp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/imageViewF2"
-        app:layout_constraintTop_toTopOf="@+id/imageViewF1" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewF2"
+        app:layout_constraintTop_toTopOf="@+id/imageViewF2" />
 
     <TextView
         android:id="@+id/textViewF3nome"
@@ -147,7 +147,7 @@
         android:layout_height="40dp"
         android:textSize="20sp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/imageViewF3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF3"
         app:layout_constraintTop_toTopOf="@+id/imageViewF3" />
 
     <TextView
@@ -157,7 +157,7 @@
         android:layout_height="40dp"
         android:textSize="20sp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/imageViewF4"
+        app:layout_constraintStart_toEndOf="@+id/imageViewF4"
         app:layout_constraintTop_toTopOf="@+id/imageViewF4"
         tools:layout_editor_absoluteX="108dp" />
 
@@ -261,8 +261,8 @@
         android:layout_marginStart="8dp"
         android:text="@string/editar"
         android:textSize="13sp"
-        app:layout_constraintStart_toEndOf="@+id/buttonCurtir1"
-        app:layout_constraintTop_toTopOf="@+id/buttonCurtir1" />
+        app:layout_constraintStart_toEndOf="@+id/textViewC1"
+        app:layout_constraintTop_toTopOf="@+id/textViewC1" />
 
     <Button
         android:id="@+id/buttonEdit2"
@@ -272,8 +272,8 @@
         android:layout_marginStart="8dp"
         android:text="@string/editar"
         android:textSize="13sp"
-        app:layout_constraintStart_toEndOf="@+id/buttonCurtir2"
-        app:layout_constraintTop_toTopOf="@+id/buttonCurtir2" />
+        app:layout_constraintStart_toEndOf="@+id/textViewC2"
+        app:layout_constraintTop_toTopOf="@+id/textViewC2" />
 
     <Button
         android:id="@+id/buttonEdit3"
@@ -283,8 +283,8 @@
         android:layout_marginStart="8dp"
         android:text="@string/editar"
         android:textSize="13sp"
-        app:layout_constraintStart_toEndOf="@+id/buttonCurtir3"
-        app:layout_constraintTop_toTopOf="@+id/buttonCurtir3" />
+        app:layout_constraintStart_toEndOf="@+id/textViewC3"
+        app:layout_constraintTop_toTopOf="@+id/textViewC3" />
 
     <Button
         android:id="@+id/buttonEdit4"
@@ -294,8 +294,8 @@
         android:layout_marginStart="8dp"
         android:text="@string/editar"
         android:textSize="13sp"
-        app:layout_constraintStart_toEndOf="@+id/buttonCurtir4"
-        app:layout_constraintTop_toTopOf="@+id/buttonCurtir4" />
+        app:layout_constraintStart_toEndOf="@+id/textViewC4"
+        app:layout_constraintTop_toTopOf="@+id/textViewC4" />
 
     <EditText
         android:id="@+id/editTextFilme1"
@@ -451,6 +451,74 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonF3" />
 
+    <EditText
+        android:id="@+id/editTextFilmeAno1"
+        android:visibility="gone"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/ano_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextFilme1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFilme1"/>
+    <EditText
+        android:id="@+id/editTextFilmeAno2"
+        android:visibility="gone"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/ano_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextFilme2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFilme2" />
+    <EditText
+        android:id="@+id/editTextFilmeAno3"
+        android:visibility="gone"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/ano_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextFilme3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFilme3"/>
+    <EditText
+        android:id="@+id/editTextFilmeAno4"
+        android:visibility="gone"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/amiko_semibold"
+        android:hint="@string/ano_filme"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextFilme4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFilme4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

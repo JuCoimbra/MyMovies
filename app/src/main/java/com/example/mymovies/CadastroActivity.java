@@ -84,7 +84,10 @@ public class CadastroActivity extends AppCompatActivity {
                try{
                    usersRef.child(login).child("usuario").setValue(username);
                    usersRef.child(login).child("senha").setValue(password);
-                 
+
+                   Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+                   startActivity(intent);
+                   finish();
                 } catch(com.google.firebase.database.DatabaseException e){
 
                 }
