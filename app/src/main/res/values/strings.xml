@@ -7,6 +7,7 @@
     <string name="usuario">Nome de Usuario:</string>
     <string name="filme_favorito">Escolha ate 4 Filmes favoritos</string>
     <string name="editar">Editar</string>
+    <string name="ano_filme">Ano do Filme</string>
     <string name="confirmar">Confirmar</string>
     <string name="senha">Senha:</string>
     <string name="confirm_senha">Confirme Sua Senha:</string>

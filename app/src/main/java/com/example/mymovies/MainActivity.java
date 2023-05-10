@@ -131,9 +131,21 @@ public class MainActivity extends AppCompatActivity {
                 listMovies.clear();
                 for(DataSnapshot current_movie: snapshot.getChildren()){
                     Movie mov = new Movie();
-                    mov.setTitulo(current_movie.child("titulo").getValue().toString());
-                    mov.setAno(current_movie.child("ano").getValue().toString());
-                    mov.setLikes(Integer.parseInt(current_movie.child("likes").getValue().toString()));
+                    try {
+                        mov.setTitulo(current_movie.child("titulo").getValue().toString());
+                    }catch (Exception e){
+                        mov.setTitulo("default_title");
+                    }
+                    try {
+                        mov.setAno(current_movie.child("ano").getValue().toString());
+                    }catch (Exception e){
+                        mov.setAno("0000");
+                    }
+                    try {
+                        mov.setLikes(Integer.parseInt(current_movie.child("likes").getValue().toString()));
+                    }catch (Exception e){
+                        mov.setLikes(0);
+                    }
                     mov.setID(current_movie.getKey().toString());
                     listMovies.add(mov);
                 }
@@ -153,11 +165,20 @@ public class MainActivity extends AppCompatActivity {
                 listMoviesUsers.clear();
 
                 for(DataSnapshot current_MU: snapshot.getChildren()){
+
                     UserMovies mu = new UserMovies();
-                    mu.setFilmeId_1(current_MU.child("1").getValue().toString());
-                    mu.setFilmeId_2(current_MU.child("2").getValue().toString());
-                    mu.setFilmeId_3(current_MU.child("3").getValue().toString());
-                    mu.setFilmeId_4(current_MU.child("4").getValue().toString());
+                    String strmu[] = new String[5];
+                    for(int i = 1; i<5; i++){
+                        try{
+                            strmu[i] = current_MU.child(String.valueOf(i)).getValue().toString();
+                        }catch (java.lang.NullPointerException e){
+                            strmu[i] = null;
+                        }
+                    }
+                    mu.setFilmeId_1(strmu[1]);
+                    mu.setFilmeId_2(strmu[2]);
+                    mu.setFilmeId_3(strmu[3]);
+                    mu.setFilmeId_4(strmu[4]);
                     listMoviesUsers.add(mu);
                 }
 
