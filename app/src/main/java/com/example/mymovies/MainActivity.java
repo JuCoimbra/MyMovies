@@ -40,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
     ArrayList listMoviesUsers = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
-    RecyclerView.LayoutManager layoutManager;
-    Toolbar toolbar = findViewById(R.id.toolbar);
+    //RecyclerView.LayoutManager layoutManager;
+    //Toolbar toolbar = findViewById(R.id.toolbar);
     ImageButton home_btn;
     ImageButton favorite_btn;
     TextView userName;
-    String userNameJson;
 
 
     @Override
@@ -53,15 +52,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String userNameJson;
+        String userId;
+        String filePath = getFilesDir() + "fileuser.json";
+
         home_btn = findViewById(R.id.btn_home);
         favorite_btn = findViewById(R.id.btn_favorites);
         userName = findViewById(R.id.user_name_text_view);
+        recyclerView = findViewById(R.id.recicleViewMain);
 
-        home_btn.setBackgroundColor(Color.rgb(111, 138, 247));
+        home_btn.setImageResource(R.drawable.baseline_home_white);
+        favorite_btn.setImageResource(R.drawable.baseline_account);
 
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(getFilesDir()+"arquivo.json"));
+            reader = new BufferedReader(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -70,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             String json = reader.readLine();
             JSONObject obj = new JSONObject(json);
             userNameJson = obj.getString("usuario");
+            userId = obj.getString("id");
             reader.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -88,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         myAdapter = new UserAdapter(listUsuarios, listMovies, listMoviesUsers);
         recyclerView.setAdapter(myAdapter);
@@ -100,12 +105,18 @@ public class MainActivity extends AppCompatActivity {
                 listUsuarios.clear();
 
                 for(DataSnapshot current_user: snapshot.getChildren()){
-                    User usu = new User();
-                    usu.setUsuario(current_user.child("nome").getValue().toString());
-                    usu.setSenha(current_user.child("senha").getValue().toString());
-                    usu.setId(current_user.getKey().toString());
-                    listUsuarios.add(usu);
-                }
+                    String nome = current_user.child("nome").getValue().toString();
+
+                    if(nome != userNameJson){
+                        User usu = new User();
+                        usu.setUsuario(nome);
+                        usu.setSenha(current_user.child("senha").getValue().toString());
+                        usu.setId(current_user.getKey().toString());
+                        listUsuarios.add(usu);
+                    }
+                };
+
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -126,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                     mov.setID(current_movie.getKey().toString());
                     listMovies.add(mov);
                 }
+
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -141,10 +154,14 @@ public class MainActivity extends AppCompatActivity {
 
                 for(DataSnapshot current_MU: snapshot.getChildren()){
                     UserMovies mu = new UserMovies();
-                    mu.setMovieID(current_MU.child("filmeID").getValue().toString());
-                    mu.setUserID(current_MU.child("usuarioID").getValue().toString());
+                    mu.setFilmeId_1(current_MU.child("1").getValue().toString());
+                    mu.setFilmeId_2(current_MU.child("2").getValue().toString());
+                    mu.setFilmeId_3(current_MU.child("3").getValue().toString());
+                    mu.setFilmeId_4(current_MU.child("4").getValue().toString());
                     listMoviesUsers.add(mu);
                 }
+
+                myAdapter.notifyDataSetChanged();
             }
 
             @Override

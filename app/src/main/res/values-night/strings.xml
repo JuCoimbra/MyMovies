@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">MyMovies</string>
+    <string name="bem_vindo_a">Bem-vindo(a)!</string>
+    <string name="crie_conta">Crie Sua Conta</string>
+    <string name="registro_academico_ra">Registro Academico (RA):</string>
+    <string name="nome_filme">Nome do Filme:</string>
+    <string name="usuario">Nome de Usuario:</string>
+    <string name="filme_favorito">Escolha ate 4 Filmes favoritos</string>
+    <string name="editar">Editar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="senha">Senha:</string>
+    <string name="confirm_senha">Confirme Sua Senha:</string>
+    <string name="login">Login</string>
+    <string name="n_o_possui_uma_conta">Não possui uma conta?</string>
+    <string name="junte_se_a_n_s">Junte-se a nós!</string>
     <string name="ops_login">Ops, algo deu errado.\nVocê já é cadastrado?</string>
     <string name="logo_content">Logo da aplicação</string>
     <string name="lema_favoritos">Sua lista de filmes favoritos</string>

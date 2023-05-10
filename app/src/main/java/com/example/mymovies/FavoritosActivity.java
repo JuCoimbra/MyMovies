@@ -2,21 +2,32 @@ package com.example.mymovies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class FavoritosActivity extends AppCompatActivity {
 
+    ImageButton home_btn;
+    ImageButton favorite_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
+
+        home_btn = findViewById(R.id.btn_home);
+        favorite_btn = findViewById(R.id.btn_favorites);
+
+        favorite_btn.setImageResource(R.drawable.baseline_account_white);
+        home_btn.setImageResource(R.drawable.baseline_home);
 
         Button[] buttonAdd = {findViewById(R.id.buttonF1),findViewById(R.id.buttonF2),findViewById(R.id.buttonF3),findViewById(R.id.buttonF4)};
         Button buttonConf = findViewById(R.id.buttonConf);
@@ -73,6 +84,14 @@ public class FavoritosActivity extends AppCompatActivity {
                     });
 
                 }
+        home_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FavoritosActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }

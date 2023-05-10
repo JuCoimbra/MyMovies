@@ -16,8 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/amiko_semibold"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <View
             android:layout_width="0dp"
@@ -30,21 +32,27 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:backgroundTint="#254FF4"
+            android:layout_gravity="center_vertical"
             android:contentDescription="home image"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/baseline_home" />
+            android:minWidth="55dp"
+            android:minHeight="55dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/baseline_home_white" />
 
         <ImageButton
             android:id="@+id/btn_favorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:layout_gravity="center_vertical"
             android:backgroundTint="#254FF3"
             android:contentDescription="favorites image"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:src="@drawable/baseline_account" />
+            android:minWidth="55dp"
+            android:minHeight="55dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/baseline_account_white" />
 
     </LinearLayout>
 

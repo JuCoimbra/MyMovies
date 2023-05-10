@@ -51,16 +51,25 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = users.get(position);
+        ArrayList<String> filmesId = new ArrayList<>();
         ArrayList<Movie> userFavoriteMovies = new ArrayList<>();
+
+
 
         userFavoriteMovies.clear();
 
         for(UserMovies mu: userMovies) {
+
+            filmesId.clear();
+            filmesId.add(mu.getFilmeId_1());
+            filmesId.add(mu.getFilmeId_2());
+            filmesId.add(mu.getFilmeId_3());
+            filmesId.add(mu.getFilmeId_4());
+
             if(mu.getUserID() == user.getId()){
-                for(Movie mov:movies){
-                    if(mu.getMovieID() == mov.getID()){
-                        userFavoriteMovies.add(mov);
-                        break;
+                for(String id : filmesId){
+                    if(id != null){
+                        userFavoriteMovies.add(movies.get(Integer.parseInt(id)+1));
                     }
                 }
             }

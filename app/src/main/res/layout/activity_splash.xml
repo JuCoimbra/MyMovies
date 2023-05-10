@@ -7,43 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreenAct">
 
-  <LinearLayout
-      android:id="@+id/linearLayoutSplash"
+  <RelativeLayout
+      android:id="@+id/relativeLayoutSplash"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center_vertical"
-      android:orientation="vertical"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      android:layout_height="match_parent"
+      android:gravity="center">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp"
         android:contentDescription="@string/logo_content"
         android:scaleType="fitCenter"
-        android:scaleX="3.0"
-        android:scaleY="3.0"
-        tools:src="@mipmap/logo_foreground" />
+        android:src="@drawable/mymovieslogo" />
 
     <TextView
         android:id="@+id/textLema"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:fontFamily="@font/allerta_stencil"
         android:text="@string/lema_favoritos"
-        android:textSize="13sp"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="13sp" />
 
-  </LinearLayout>
+  </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
