@@ -38,11 +38,11 @@
             android:id="@+id/btn_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:contentDescription="likes image"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_weight="0"
-            android:src="res/drawable/favorite_border.xml"
-            android:contentDescription="likes image"/>
+            android:src="@drawable/favorite_border" />
 
         <TextView
             android:id="@+id/movie_likes"

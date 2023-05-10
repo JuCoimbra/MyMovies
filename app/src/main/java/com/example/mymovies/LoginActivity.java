@@ -35,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        String filePath = getFilesDir() + "fileuser.json";
+
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("usuario");
         Button buttonLogin = findViewById(R.id.buttonLogin);
         Button buttonCadastrar= findViewById(R.id.buttonCadastrar);
@@ -79,39 +81,35 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 try {
-                    usersRef.child(login).child("senha").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    usersRef.child(login).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            //User usuario = new User((HashMap<Objects, String>) task.getResult().getValue(),login);
                           
-                           if (!task.isSuccessful() || !password.equals(task.getResult().getValue().toString() {
+                           if (!task.isSuccessful() || !password.equals(task.getResult().child("senha").getValue().toString())){
                                 textViewError.setVisibility(View.VISIBLE);
                             } else {
 
-                                Intent intent = new Intent(LoginActivity.this, FavoritosActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                              
                                 textViewError.setVisibility(View.GONE);
 
                                JSONObject jsonObject = new JSONObject();
                                try {
-                                   jsonObject.put("usuario", usersRef.child(login).child("usuario"));
-                                   jsonObject.put("senha", usersRef.child(login).child("usuario"));
+                                   jsonObject.put("usuario", task.getResult().child("usuario").getValue().toString());
+                                   jsonObject.put("senha", task.getResult().child("senha").getValue().toString());
                                    jsonObject.put("id", login);
                                } catch (JSONException e) {
                                    e.printStackTrace();
                                }
-                               String jsonString = jsonObject.toString();
 
-                               File file = new File(getApplicationContext().getFilesDir(), "user.json");
-
-                               if (!file.exists()){
-                                   try{
-                                       FileWriter writer = new FileWriter(file);
-                                       writer.write(jsonString);
-                                       writer.close();
-                                   } catch (IOException e) {
-                                       e.printStackTrace();
-                                   }
+                               try (FileWriter file = new FileWriter(filePath)) {
+                                   file.write(jsonObject.toString());
+                                   file.flush();
+                                   System.out.println(filePath);
+                                   file.close();
+                               } catch (IOException e) {
+                                   System.out.println("OH NO!");
+                                   e.printStackTrace();
                                }
 
                                 startActivity(intent);

@@ -16,8 +16,6 @@ public class SplashScreenAct extends AppCompatActivity {
 
         Handler handler = new Handler();
         ImageView logoImage = findViewById(R.id.logo);
-        logoImage.setScaleX(1.5f);
-        logoImage.setScaleY(1.5f);
 
         handler.postDelayed(new Runnable() {
             @Override
