@@ -34,9 +34,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         public ViewHolder(View view){
             super(view);
             textView = view.findViewById(R.id.user_name_text_view);
-            reciclerView = view.findViewById(R.id.user_name_text_view);
-
-            layoutManager = new LinearLayoutManager(view.getContext());
+            reciclerView = view.findViewById(R.id.favorite_movies_recycler_view);
+            layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
             reciclerView.setLayoutManager(layoutManager);
         }
     }
@@ -54,8 +53,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         ArrayList<String> filmesId = new ArrayList<>();
         ArrayList<Movie> userFavoriteMovies = new ArrayList<>();
 
-
-
         userFavoriteMovies.clear();
 
         for(UserMovies mu: userMovies) {
@@ -66,7 +63,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             filmesId.add(mu.getFilmeId_3());
             filmesId.add(mu.getFilmeId_4());
 
-            if(mu.getUserID() == user.getId()){
+            if(user.getId().equals(mu.getUserID())){
                 for(String id : filmesId){
                     if(id != null){
                         userFavoriteMovies.add(movies.get(Integer.parseInt(id)+1));
@@ -78,6 +75,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         holder.myAdapter = new MovieAdapter(userFavoriteMovies);
         holder.textView.setText(user.getUsuario());
         holder.reciclerView.setAdapter(holder.myAdapter);
+
     }
 
     @Override

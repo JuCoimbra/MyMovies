@@ -61,11 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                try {  
-                    int r = Integer.parseInt(login);
-                    String ConfLogin = String.valueOf(r);
-
-                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                try {
+                    if (!(login.matches("\\d+") && login.length() == 9)) {
                         editTextLoginID.setError("RA não pode ser validado. Utilize somente numeros");
                         editTextLoginID.requestFocus();
 
@@ -122,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     textViewError.setVisibility(View.VISIBLE);
 
 
-            }
+                }
             }
         });
 

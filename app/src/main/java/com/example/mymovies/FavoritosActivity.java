@@ -43,6 +43,7 @@ public class FavoritosActivity extends AppCompatActivity {
 
     ImageButton home_btn;
     ImageButton favorite_btn;
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +77,11 @@ public class FavoritosActivity extends AppCompatActivity {
 
         home_btn = findViewById(R.id.btn_home);
         favorite_btn = findViewById(R.id.btn_favorites);
+        userName = findViewById(R.id.user_name_text_view);
 
         favorite_btn.setImageResource(R.drawable.baseline_account_white);
         home_btn.setImageResource(R.drawable.baseline_home);
+        userName.setText(userNameJson);
 
         Button[] buttonAdd = {findViewById(R.id.buttonF1),findViewById(R.id.buttonF2),findViewById(R.id.buttonF3),findViewById(R.id.buttonF4)};
         Button buttonConf = findViewById(R.id.buttonConf);

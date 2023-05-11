@@ -1,5 +1,8 @@
 package com.example.mymovies;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Movie {
 
     private String titulo;
@@ -41,7 +44,12 @@ public class Movie {
     }
 
     public void likePlus() {
-        likes++;
+        this.likes++;
+
+        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference movie = dbReference.child("filmes");
+
+        movie.child(this.getID()).child("likes").setValue(this.getLikes());
     }
 
 }

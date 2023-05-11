@@ -64,10 +64,7 @@ public class CadastroActivity extends AppCompatActivity {
                 }
 
                 try {
-                    r = Integer.parseInt(login);
-                    String ConfLogin = String.valueOf(r);
-
-                    if (!(login.equals(ConfLogin) && login.length() == 9)) {
+                    if (!(login.matches("\\d+") && login.length() == 9)) {
                         editTextLoginRA.setError("RA não pode ser validado. Utilize somente numeros");
                         editTextLoginRA.requestFocus();
 

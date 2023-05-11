@@ -19,7 +19,7 @@
         android:layout_below="@+id/movie_title"
         android:layout_alignParentRight="true"
         android:layout_marginTop="2dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -32,7 +32,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" />
+            android:layout_weight="2" />
 
         <ImageButton
             android:id="@+id/btn_like"
@@ -42,6 +42,7 @@
             android:contentDescription="likes image"
             android:minWidth="48dp"
             android:minHeight="48dp"
+            android:background="@null"
             android:src="@drawable/favorite_border" />
 
         <TextView
@@ -49,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

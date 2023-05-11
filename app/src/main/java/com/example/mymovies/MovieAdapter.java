@@ -32,8 +32,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             super(view);
             movie_title = view.findViewById(R.id.movie_title);
             movie_year = view.findViewById(R.id.movie_year);
-            movie_year = view.findViewById(R.id.movie_likes);
-            movie_year = view.findViewById(R.id.btn_like);
+            movie_likes = view.findViewById(R.id.movie_likes);
+            btn_like = view.findViewById(R.id.btn_like);
         }
     }
 

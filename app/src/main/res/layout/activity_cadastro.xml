@@ -50,12 +50,12 @@
                     android:ems="10"
                     android:fontFamily="@font/amiko_semibold"
                     android:hint="@string/registro_academico_ra"
-                    android:inputType="textPersonName"
                     android:minHeight="48dp"
                     android:padding="8dp"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRA" />
+
                 <EditText
                     android:id="@+id/editTextUsername"
                     android:layout_width="match_parent"
